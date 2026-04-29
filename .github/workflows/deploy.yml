@@ -1,0 +1,15 @@
+name: deploy.yml
+on: 'push'
+
+jobs:
+  push-to-registry:
+    runs-on: ubuntu-latest
+    env:
+      DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      DOCKERHUB_REPO: ${{ vars.DOCKERHUB_REPO }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Build and Push to Docker Hub
+        uses: ./.github/actions/build-and-push
