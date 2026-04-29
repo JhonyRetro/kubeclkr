@@ -1,0 +1,7 @@
+services:
+  kubeclkr:
+    build: .
+    container_name: kubeclkr-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped

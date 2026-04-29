@@ -1,0 +1,10 @@
+{
+  "name": "kubeclkr",
+  "version": "1.0.0",
+  "description": "App muy simple",
+  "main": "clicker.js",
+  "scripts": {
+    "test": "echo \"Error: no tests found!\" && exit 1"
+  },
+  "private": true
+}

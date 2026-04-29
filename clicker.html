@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boton para nada sospechoso</title>
+    <style>
+        /* Estilos generales de la página */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2c3e50; /* Fondo oscuro tipo sala de control */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        /* Pantalla del contador */
+        #counter-container {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            background: #1a252f; /* Pantalla digital oscura */
+            padding: 15px 40px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid #34495e;
+            color: #2ecc71; /* Texto verde brillante tipo LED */
+            font-family: monospace;
+        }
+
+        /* Panel gris que sostiene el botón */
+        .panel {
+            background-color: #bdc3c7;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+            border: 4px solid #95a5a6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* El mismísimo botón rojo */
+        #red-button {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            /* Degradado radial para darle un efecto 3D redondeado */
+            background: radial-gradient(circle at 35% 35%, #ff5252, #e74c3c, #8b0000);
+            border: 8px solid #5a0000;
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            /* Sombras para que parezca que sobresale */
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6), inset 0 -15px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
+            outline: none;
+            user-select: none; /* Evita que se seleccione el texto al hacer doble clic rápido */
+        }
+
+        /* Efecto al pulsar el botón */
+        #red-button:active {
+            transform: translateY(15px) scale(0.96); /* Se hunde y se encoge un poquito */
+            /* La sombra se reduce al estar presionado */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6), inset 0 -5px 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contador -->
+<div id="counter-container">
+    Clicks: <span id="count">0</span>
+</div>
+
+<!-- Botón -->
+<div class="panel">
+    <button id="red-button">CLICK!</button>
+</div>
+
+<script src="clicker.js"></script>
+</body>
+</html>
