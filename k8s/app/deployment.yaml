@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeclkr
+  labels:
+    app: kubeclkr
+
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  selector:
+    matchLabels:
+      app: kubeclkr
+
+  template:
+    metadata:
+      name: kubeclkr
+      labels:
+        app: kubeclkr
+    spec:
+      containers:
+        - name: kubeclkr
+          image: jhonyretro/kubeclkr:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+
