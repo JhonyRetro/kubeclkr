@@ -14,4 +14,10 @@ button.addEventListener('click', () => {
         document.getElementById('counter-container').style.color = "#ff4d4d";
         alert("Muchos clicks eh...");
     }
+
+    if (count === 200) {
+        document.body.style.backgroundColor = "#c41d1d";
+        document.getElementById('counter-container').style.color = "#ff4d4d";
+        alert("Demasiados clicks!!!");
+    }
 });
